@@ -38,7 +38,7 @@ public class HelloServiceApplication {
 		public String hello() {
 			LOGGER.info("--------Hello method started--------");
 			LOGGER.error("--------Hello method started, missing id--------");
-			ResponseEntity<String> responseEntity = this.restTemplate.getForEntity("http://localhost:8081/hi",
+			ResponseEntity<String> responseEntity = this.restTemplate.getForEntity("http://hi-service:8081/hi",
 					String.class);
 			return responseEntity.getBody();
 		}

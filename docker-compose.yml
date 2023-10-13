@@ -1,6 +1,7 @@
 version: "3"
 services:
   otel-collector:
+    container_name: otel-collector
     image: otel/opentelemetry-collector-contrib:0.82.0
     restart: always
     command:
@@ -31,11 +32,13 @@ services:
       - "9090:9090"
 
   loki:
+    container_name: loki
     image: grafana/loki:latest
     command: -config.file=/etc/loki/local-config.yaml
     ports:
       - "3100:3100"
   tempo:
+    container_name: tempo
     image: grafana/tempo:latest
     command: [ "-config.file=/etc/tempo/tempo.yml" ]
     volumes:
@@ -52,6 +55,7 @@ services:
       - "3000:3000"
 
   jaeger-all-in-one:
+    container_name: jaeger
     image: jaegertracing/all-in-one:latest
     restart: always
     ports:
@@ -60,18 +64,21 @@ services:
       - "14250"
 
   zipkin-all-in-one:
+    container_name: zipkin
     image: openzipkin/zipkin:latest
     restart: always
     ports:
       - "9411:9411"
 
   hello-service:
+    container_name: hello-service
     image: hello-service
     restart: always
     ports:
       - "8080:8080"
 
   hi-service:
+    container_name: hi-service
     image: hi-service
     restart: always
     ports:
