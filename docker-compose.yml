@@ -64,3 +64,15 @@ services:
     restart: always
     ports:
       - "9411:9411"
+
+  hello-service:
+    image: hello-service
+    restart: always
+    ports:
+      - "8080:8080"
+
+  hi-service:
+    image: hi-service
+    restart: always
+    ports:
+      - "8081:8081"
